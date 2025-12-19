@@ -1,13 +1,14 @@
 import React from "react";
 
-function GuessInput() {
-  const [guessTerm, setGuessTerm] = React.useState('');
+function GuessInput({ handleSubmitGuess }) {
+  const [guessTerm, setGuessTerm] = React.useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
     // log the uppercase value of the input field to the console
     console.info({ guessTerm });
-    setGuessTerm('');
+    handleSubmitGuess(guessTerm);
+    setGuessTerm("");
   }
 
   return (
