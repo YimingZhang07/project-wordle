@@ -1,6 +1,6 @@
 import React from "react";
 
-function GuessInput({ handleSubmitGuess }) {
+function GuessInput({ gameStatus, handleSubmitGuess }) {
   const [guessTerm, setGuessTerm] = React.useState("");
 
   function handleSubmit(event) {
@@ -19,8 +19,10 @@ function GuessInput({ handleSubmitGuess }) {
         type="text"
         value={guessTerm}
         required
+        disabled={gameStatus !== "running"}
         minLength={5}
         maxLength={5}
+        pattern="[A-Za-z]{5}"
         title="Must be exactly 5 characters"
         onChange={(event) => {
           // convert input value to uppercase when the user types
